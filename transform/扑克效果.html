@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 300px;
+            position:relative;
+            margin:100px auto;
+            -webkit-transition:1s all ease;
+            -webkit-transform-style:preserve-3d;
+            -webkit-transform:perspective(800px);
+        }
+        .front{
+            width: 200px;
+            height: 300px;
+            background:red;
+            position:absolute;
+            left: 0;
+            top: 0;
+            -webkit-transform:translateZ(1px);
+        }
+        .back{
+            width: 200px;
+            height: 300px;
+            background:green;
+            position:absolute;
+            left: 0;
+            top: 0;
+            -webkit-transform:translateZ(-1px) scale(-1,1);
+        }
+        .box:active {
+            -webkit-transform:perspective(800px) rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="front">我是前面</span>
+        <span class="back">我是后面</span>
+    </div>
+</body>
+</html>

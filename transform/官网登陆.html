@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 300px;
+            background:green;
+            margin:100px auto;
+            -webkit-transform:scale(2,2);
+            opacity:0;
+            display:none;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oBtn=document.querySelector('.login');
+            var oBox=document.querySelector('.box');
+            oBtn.onclick=function(){
+                oBox.style.display='block';
+                oBox.style.WebkitTransition='1s all ease';
+                setTimeout(function(){
+                    oBox.style.WebkitTransform='scale(1,1)';
+                    oBox.style.opacity=1;
+                },0);
+            };
+            oBox.onclick=function(){
+                oBox.style.opacity=0;
+                oBox.style.WebkitTransform='scale(2,2)';
+                function hide(){
+                    removeEventListener(hide);
+                    oBox.style.display='none';
+                }
+                addEventListener('transitionend',hide,false);
+            };
+        };
+    </script>
+</head>
+<body>
+    <input type="button" value="登陆" class="login">
+    <div class="box"></div>
+</body>
+</html>
